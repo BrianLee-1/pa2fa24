@@ -64,8 +64,11 @@ int main() {
  *                  separator character, followed by a space, followed by a
  *                  floating-point value
  */
-string MakeString(string label, double value, char separator) {
-  // CODE HERE
+string MakeString(string label = "Temperature", double value=41.7, char separator= ':') {
+stringstream ss;
+ss << label << " " << separator << " " << value;
+return ss.str();
+
 }
 
 /*
@@ -78,6 +81,12 @@ string MakeString(string label, double value, char separator) {
  */
 char StringToChar(string value) {
   // CODE HERE
+  if (value.length() == 1){
+    return value[0];
+  } else {
+      return '\0';
+  }
+
 }
 
 /*
@@ -114,6 +123,15 @@ int StringToInt(string value) {
  */
 double StringToDouble(string value) {
   // CODE HERE
+  stringstream ss(value);
+  double number;
+  ss >> number;
+  if (ss && ss.eof()){
+    return number;
+  }else {
+    return 0.0;
+  }
+
 }
 
 /*
@@ -129,6 +147,17 @@ double StringToDouble(string value) {
  */
 bool StringToBool(string value) {
   // CODE HERE
+ 
+  for (int i = 0; i < value.size(); i++){
+    char firstChar = value[i];
+  
+  if (firstChar == 'T'){
+    return true;
+  }else if (firstChar == 'F'){
+    return false;
+  }
+  return false;
+}
 }
 
 // For testing (DO NOT ALTER)
