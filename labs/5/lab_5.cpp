@@ -1,6 +1,6 @@
 /*
  * Name        : lab_5.cpp
- * Author      : FILL IN
+ * Author      : Brian Lee
  * Description : Working with Arrays
  */
 
@@ -26,7 +26,12 @@ using std::stringstream;
  * @return string - A string containing the contents of values separated by the
  *                  specified separator character
  */
-string PrepareForDisplay(int values[], int size, char separator = ',');
+string PrepareForDisplay(int values[], int size, char separator = ','){
+  stringstream ss;
+  for (unsigned int i =0; i < size -1; i++){
+     cout << size[i] << separator;
+  }
+}
 
 /*
  * Test to see if an array contains a specified value.
@@ -35,7 +40,13 @@ string PrepareForDisplay(int values[], int size, char separator = ',');
  * @param int value - The value to search for within the array
  * @return bool - true if value is found in the array, otherwise false
  */
-bool HasValue(int values[], int size, int value);
+bool HasValue(int values[], int size, int value)
+  {
+     for (unsigned int i =1; i < size; i++){
+  
+     }
+     
+}
 
 /*
  * Return the value from an array at a specified index.

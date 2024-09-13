@@ -1,6 +1,6 @@
 /*
  * Name        : lab_6.cpp
- * Author      : FILL IN
+ * Author      : Brian Lee
  * Description : Practicing Functions
  */
 
@@ -23,7 +23,10 @@ using std::string;
  * Display "Hello world!" to stdout (no newline character after)
  */
 // CODE HERE (FUNCTION PROTOTYPE)
-void Hello();
+void Hello(){
+  cout << "Hello World!";
+  return;
+}
 
 /*
  * function name: PrintMessage
@@ -34,7 +37,10 @@ void Hello();
  * Display message to stdout (no newline character after)
  */
 // CODE HERE (FUNCTION PROTOTYPE)
-
+void PrintMessage(const string message){
+ string Message = "Message";
+ return;
+}
 /*
  * function name: GetAnswer
  * parameters: none
@@ -44,6 +50,10 @@ void Hello();
  * Return the value 42
  */
 // CODE HERE (FUNCTION PROTOTYPE)
+int GetAnswer(){
+  int answer = 42;
+  return answer;
+}
 
 /*
  * function name: FindLarger
@@ -55,6 +65,10 @@ void Hello();
  * if the values are equivalent.
  */
 // CODE HERE (FUNCTION PROTOTYPE)
+int FindLarger(const int small, const int big){
+int something = small;
+return something;
+}
 
 /*
  * function name: GetStats
@@ -69,7 +83,10 @@ void Hello();
  * characters in the first parameter (string)
  */
 // CODE HERE (FUNCTION PROTOTYPE)
-
+  int GetStats(const string one, int two, int three){
+    int something;
+    return something;
+  }
 /*
  * function name: BuildMessage
  * parameters: string (const call-by-reference), bool (const call-by-reference)
@@ -83,7 +100,9 @@ void Hello();
  * "Message: empty".
  */
 // CODE HERE (FUNCTION PROTOTYPE)
-
+string BuildMessage(const string something, const bool){
+  string message = 
+}
 
 // For testing (DO NOT ALTER)
 #include <cctype>

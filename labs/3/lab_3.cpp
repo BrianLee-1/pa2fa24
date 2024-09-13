@@ -1,6 +1,6 @@
 /*
  * Name        : lab_3.cpp
- * Author      : FILL IN
+ * Author      : Brian Lee
  * Description : Using branching statements, looping statements and string and
  *               character functions complete the functions
  */
@@ -64,7 +64,34 @@ int main() {
  * @return string - The output string specified in the documentation above
  */
 string Goldilocks(string item, int number) {
-  // CODE HERE
+
+  if (item == "porridge" && number ==1) {
+  return "The porridge is too hot";
+  }
+  else if (item == "porridge" && number ==2) {
+    return "This porridge is too cold";
+  }
+  else if (item == "porridge" && number ==3) {
+  return "This porridge is just right";
+  }
+  else if (item == "chair" && number ==1) {
+  return "This chair is too big";
+  }
+  else if (item == "chair" && number ==2) {
+  return "This chair is too small";
+  }
+  else if (item == "chair" && number ==3) {
+  return "This chair is just right";
+  }
+  else if (item == "bed" && number ==1) {
+  return "This bed is too hard";
+  }
+  else if (item == "bed" && number ==2) {
+  return "This bed is too soft";
+  }
+  else if (item == "bed" && number ==3) {
+  return "This bed is just right";
+  }
 }
 
 /*
@@ -82,6 +109,51 @@ string Goldilocks(string item, int number) {
 int RockScissorPaper(char player_one, char player_two) {
   // YOU MUST USE A SWITCH IN THIS FUNCTION
   // CODE HERE
+
+  //switch-case statement where if player_two gives specific responses to player_one.
+
+  switch (player_one) {
+    case 'R':
+      if (player_two == 'S'){
+        return 1;
+        }
+      else if (player_two = 'P') {
+        return 2;
+        }
+    case 'r':
+      if (player_two == 'S'){
+        return 1;
+        }
+      else if (player_two = 'r') {
+        return 3;
+        }
+      else if (player_two = 'r') {
+        return 3;
+        }
+      break;
+    case 'S':
+      if (player_two = 'P'){
+        return 1;
+        }
+      else if (player_two = 'R') {
+        return 2;
+        }
+      else {
+        return 3;
+        }
+      break;
+    case 'P':
+      if (player_two = 'R'){
+        return 1;
+        }
+      else if (player_two = 'S') {
+        return 2;
+        }
+      else {
+        return 3;
+        }
+      break;
+  }
 }
 
 /*
@@ -94,10 +166,13 @@ int RockScissorPaper(char player_one, char player_two) {
  *                  the char
  */
 string CharWithAsciiValueAsString(char character) {
-  // CODE HERE
+    stringstream ss;
+    ss << character << " " << int(character);
+    return ss.str();
+  }
 
   // HINT: try a stringstream here
-}
+
 
 /*
  * Return the input string with all characters converted to lowercase.
@@ -106,6 +181,11 @@ string CharWithAsciiValueAsString(char character) {
  */
 string ToLower(string input) {
   // CODE HERE
+  string result = input;
+  for (int i= 0; i<input.length(); i++ ) {
+    result[i] = tolower(input[i]);
+  }
+  return result;
 }
 
 /*
@@ -114,7 +194,11 @@ string ToLower(string input) {
  * @return string - a string containing the converted input string
  */
 string ToUpper(string input) {
-  // CODE HERE
+  string result = input;
+  for (int i= 0; i<input.length(); i++ ) {
+    result[i] = toupper(input[i]);
+  }
+  return result;
 }
 
 /*
@@ -128,6 +212,13 @@ string ToUpper(string input) {
  */
 char GetCharacter(string input, int char_index) {
   // CODE HERE
+  char result = '\0';
+  for (int i = 0; i <= char_index &&i < input.length(); i++) {
+    if (i==char_index){
+    result = input[i];
+    }
+  }
+  return result;
 }
 
 // For testing (DO NOT ALTER)
