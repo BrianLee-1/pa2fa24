@@ -1,6 +1,6 @@
 /*
  * Name        : lab_7.cpp
- * Author      : FILL IN
+ * Author      : Brian Lee
  * Description : Working with File I/O
  */
 #include <fstream>
@@ -29,7 +29,7 @@ using std::map;
  * @return bool - True if filename was successfully opened and processed,
  *                else false
  */
-bool ProcessFile(string filename);
+ 
 
 // For testing (DO NOT ALTER)
 #include <cctype>
@@ -57,6 +57,33 @@ int main() {
 }
 
 // CODE HERE -- FUNCTION DEFINITION
+bool ProcessFile(string filename);
+
+
+ while (!fin.eof()) {
+    // Get the current line in the file
+    getline(fin, filename);
+    // Output the line to the output file (we are appending)
+    fout << filename << endl;
+  }
+ if (){
+    OnTen();
+  } 
+  else if (){
+    OnTwenty();
+  }
+  else if (){
+    OnThirty();
+  }
+  else if (){
+    OnForty();
+  }
+  else if (){
+    OnFifty();
+  }
+  else{
+    OnError();
+  }
 
 // For testing (DO NOT ALTER)
 void UnitTest() {

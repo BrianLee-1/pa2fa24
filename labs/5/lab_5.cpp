@@ -28,9 +28,13 @@ using std::stringstream;
  */
 string PrepareForDisplay(int values[], int size, char separator = ','){
   stringstream ss;
-  for (unsigned int i =0; i < size -1; i++){
-     cout << size[i] << separator;
+  for (unsigned int i =0; i < size; i++){
+     ss << values[i];
+     if (i<size -1){
+      ss << separator;
+     }
   }
+  return ss.str();
 }
 
 /*
@@ -42,10 +46,12 @@ string PrepareForDisplay(int values[], int size, char separator = ','){
  */
 bool HasValue(int values[], int size, int value)
   {
-     for (unsigned int i =1; i < size; i++){
-  
+     for (unsigned int i = 0; i < size; i++){
+      if (values[i] == value){
+        return true;
+      }
      }
-     
+     return false;
 }
 
 /*
@@ -58,15 +64,27 @@ bool HasValue(int values[], int size, int value)
  * @return int - The value at the specified index in the array when error is set
  *               to false. if index is invalid, returns 0 and sets error to true
  */
-int ValueAt(int values[], int size, int index, bool& error);
-
+int ValueAt(int values[], int size, int index, bool& error){
+  if (index < 0 || index >= size){
+    error = 1;
+    return 0;
+  }
+  error = 0;
+  return values[index];
+}
 /*
  * Return the sum of the values in an integer array.
  * @param int values - An array of integers
  * @param int size - The size of the integer array
  * @return int - The sum of the values in the array
  */
-int Sum(int values[], int size);
+int Sum(int values[], int size){
+  int sum = 0;
+  for (unsigned int i = 0; i < size; i++){
+    sum = values[i] + sum;
+  }
+  return sum;
+}
 
 /*
  * Swap the positions of two values in an integer array. The two
@@ -77,7 +95,15 @@ int Sum(int values[], int size);
  * @param int index2 - The position of the second value to be swapped
  * @return bool - true if the swap was successful, otherwise false
  */
-bool SwapValues(int values[], int size, int index1, int index2);
+bool SwapValues(int values[], int size, int index1, int index2){
+  if (index1 < 0 || index1 >= size || index2 < 0 || index2 >=size){
+    return 0;
+  }
+  int swap = values[index1];
+  values[index1] = values[index2];
+  values[index2] = swap;
+  return 1;
+}
 
 // For testing (DO NOT ALTER)
 #include <cctype>

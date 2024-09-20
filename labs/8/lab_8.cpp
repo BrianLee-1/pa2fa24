@@ -1,6 +1,6 @@
 /*
  * Name        : lab_8.cpp
- * Author      : FILL IN
+ * Author      : Brian Lee
  * Description : Working with Command Line Arguments
  */
 #include <fstream>
@@ -30,7 +30,7 @@ using std::stringstream;
  *                   on the command-line
  * @param char *argv[] - An array containing the command-line arguments
  */
-void ProcessArguments(int argc, char *argv[]);
+
 
 // For testing (DO NOT ALTER)
 #include <cctype>
@@ -59,7 +59,30 @@ int main(int argc, char* argv[]) {
 }
 
 // CODE HERE -- FUNCTION DEFINITION
-
+void ProcessArguments(int argc, char *argv[]){
+  for (int i = 0; i < argc; i++){
+    cout << i << " " << argv[i] << endl;
+    
+    if (argv[i] == "10"){
+      OnTen();
+    }
+    else if (argv[i] == "20"){
+      OnTwenty();
+    }
+    else if (argv[i] == "30"){
+      OnThirty();
+    }
+    else if (argv[i] = "40"){
+      OnForty();
+    }
+    else if (argv[i] == "50"){
+      OnFifty();
+    }
+    else {
+      OnError();
+    }
+  }
+}
 // For testing (DO NOT ALTER)
 void UnitTest(int argc, char *argv[]) {
   if (argc > 1 && strcmp(argv[1], "teacher") == 0 && CheckArgs(argc, argv)) {

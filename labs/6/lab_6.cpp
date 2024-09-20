@@ -158,7 +158,7 @@ void UnitTest() {
   Test(FindLarger(1, 1) == 1, __LINE__, "FindLarger(1, 1)");
   int upper = 0, lower = 0;
   Test(GetStats("abc ABC", upper, lower) == 7 && upper == 3 && lower == 3,
-       __LINE__, "GetStats(\"abc 123\", upper, lower)");
+       __LINE__, "GetStats(\"abc ABC\", upper, lower)");
   Test(GetStats("abc", upper, lower) == 3 && upper == 0 && lower == 3, __LINE__,
        "GetStats(\"abc\", upper, lower)");
   Test(GetStats("ABC", upper, lower) == 3 && upper == 3 && lower == 0, __LINE__,
