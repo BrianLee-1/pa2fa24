@@ -24,8 +24,7 @@ using std::string;
  */
 // CODE HERE (FUNCTION PROTOTYPE)
 void Hello(){
-  cout << "Hello World!";
-  return;
+  cout << "Hello world!";
 }
 
 /*
@@ -38,8 +37,7 @@ void Hello(){
  */
 // CODE HERE (FUNCTION PROTOTYPE)
 void PrintMessage(const string message){
- string Message = "Message";
- return;
+ cout << message;
 }
 /*
  * function name: GetAnswer
@@ -66,9 +64,12 @@ int GetAnswer(){
  */
 // CODE HERE (FUNCTION PROTOTYPE)
 int FindLarger(const int small, const int big){
-int something = small;
-return something;
+if (small > big){
+  return small;
+} else {
+  return big;
 }
+} 
 
 /*
  * function name: GetStats
@@ -83,9 +84,19 @@ return something;
  * characters in the first parameter (string)
  */
 // CODE HERE (FUNCTION PROTOTYPE)
-  int GetStats(const string one, int two, int three){
-    int something;
-    return something;
+  int GetStats(const string & length, int& upperCount, int& lowerCount){
+   upperCount = 0;
+   lowerCount = 0;
+   char character;
+   for (int i = 0; i < length.length(); i++){
+    character = length[i];
+    if (character >= 'A' && character <= 'Z'){
+      upperCount++;
+    } else if (character >= 'a' && character <= 'z'){
+      lowerCount++;
+    }
+   }
+   return length.length();
   }
 /*
  * function name: BuildMessage
@@ -100,9 +111,31 @@ return something;
  * "Message: empty".
  */
 // CODE HERE (FUNCTION PROTOTYPE)
-string BuildMessage(const string something, const bool){
-  string message = 
+string BuildMessage(string input = "",bool something = false){
+  //setting my variable members
+  string message = "Message: ";
+  char character;
+  
+  if (input.length() == 0){
+    return "Message: empty";
+  }
+ if (something){
+  for (int i = 0; i < input.length(); i++){
+  character = input[i];
+  
+  //this if loop will check if it is lowercased
+  if (character >= 'a' && character <= 'z'){
+    character = character - 32;
+  }
+  message = message + character;
+ }
+ } else {
+  message = message + input;
+ }
+ return message;
+
 }
+
 
 // For testing (DO NOT ALTER)
 #include <cctype>
@@ -123,9 +156,7 @@ int main() {
 }
 
 // CODE HERE (FUNCTION DEFINITIONS)
-void Hello() {
-  cout << "Hello world!";
-}
+
 
 // For testing (DO NOT ALTER)
 void UnitTest() {
