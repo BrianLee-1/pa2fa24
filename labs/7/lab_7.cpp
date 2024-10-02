@@ -8,6 +8,7 @@
 #include <map>
 #include <string>
 using std::cout;
+using std::cerr;
 using std::ifstream;
 using std::endl;
 using std::string;
@@ -57,32 +58,39 @@ int main() {
 }
 
 // CODE HERE -- FUNCTION DEFINITION
-bool ProcessFile(string filename);
+bool ProcessFile(string filename){
+  ifstream fin(filename);
 
-
- while (!fin.eof()) {
+   if (!fin.is_open()) {
     // Get the current line in the file
-    getline(fin, filename);
+    cerr << "Failed to open" << filename << endl;
     // Output the line to the output file (we are appending)
-    fout << filename << endl;
+    return false;
   }
- if (){
-    OnTen();
-  } 
-  else if (){
+
+  int value;
+  while (fin >> value){
+   if (value == 10){
+   OnTen();
+  }
+  else if (value == 20){
     OnTwenty();
   }
-  else if (){
+  else if (value==30){
     OnThirty();
   }
-  else if (){
+  else if (value==40){
     OnForty();
   }
-  else if (){
+  else if (value == 50){
     OnFifty();
   }
   else{
     OnError();
+  }
+  }
+  fin.close();
+  return true;
   }
 
 // For testing (DO NOT ALTER)

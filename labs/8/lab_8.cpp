@@ -60,22 +60,23 @@ int main(int argc, char* argv[]) {
 
 // CODE HERE -- FUNCTION DEFINITION
 void ProcessArguments(int argc, char *argv[]){
-  for (int i = 0; i < argc; i++){
+  for (int i = 1; i < argc; i++){
     cout << i << " " << argv[i] << endl;
-    
-    if (argv[i] == "10"){
+    string arg = argv[i];
+
+    if (arg == "10"){
       OnTen();
     }
-    else if (argv[i] == "20"){
+    else if (arg == "20"){
       OnTwenty();
     }
-    else if (argv[i] == "30"){
+    else if (arg == "30"){
       OnThirty();
     }
-    else if (argv[i] = "40"){
+    else if (arg == "40"){
       OnForty();
     }
-    else if (argv[i] == "50"){
+    else if (arg == "50"){
       OnFifty();
     }
     else {
