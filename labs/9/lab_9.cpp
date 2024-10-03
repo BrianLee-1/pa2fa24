@@ -87,9 +87,9 @@ class Spaceship {
   string ToString() const{
     stringstream ss;
   cout << "NAME" << name_ << endl;
-  cout << "Top Speed: " << "Warp " << top_speed_ << endl;
-  cout << "Fuel Source: " << fuel_source_ << endl;
-  cout << "Crew Capacity:" << crew_capacity_;
+  cout << "Top Speed:     Warp" << top_speed_ << endl;
+  cout << "Fuel Source:   " << fuel_source_ << endl;
+  cout << "Crew Capacity: " << crew_capacity_;
 
     return ss.str();
   }

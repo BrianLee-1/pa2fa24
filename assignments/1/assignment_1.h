@@ -1,7 +1,7 @@
 /*
  * Name        : Assignment 1 .h
  * Author      : Brian Lee
- * Description : file for my inclues and function prototypes
+ * Description : file for my includes and function prototypes
  * Sources     : 
  */
 
