@@ -1,6 +1,6 @@
 /*
  * Name        : lab_14.cpp
- * Author      : FILL IN
+ * Author      : Brian Lee
  * Description : Working with Bubble and Selection Sort
  */
 #include <iostream>
@@ -8,6 +8,8 @@
 using std::cout;
 using std::endl;
 using std::string;
+
+void SwapValues(int &value_1, int &value_2);
 
 /*
  * Apply the bubble sort algorithm to sort an array of integers.
@@ -17,7 +19,16 @@ using std::string;
  *               defined as the number of times the outside loop runs. You
  *               should increment your variable once you enter the outside loop.
  */
-int BubbleSort(int the_array[], unsigned int size);
+int BubbleSort(int the_array[], unsigned int size){
+     for (int i = (size-1); i > 0; i--){
+          for (int j =0; j < i; j++){
+               if (the_array[j] > the_array[j+1]){
+                  SwapValues(the_array[j],the_array[j+1]);
+               }
+          }
+     }
+     return 4;
+}
 
 /*
  * Apply the optimized bubble sort algorithm to sort an array of integers.
@@ -27,7 +38,20 @@ int BubbleSort(int the_array[], unsigned int size);
  *               defined as the number of times the outside loop runs. You
  *               should increment your variable once you enter the outside loop.
  */
-int OptimizedBubbleSort(int the_array[], unsigned int size);
+int OptimizedBubbleSort(int the_array[], unsigned int size){
+      for (int i = size; i > 1; i--){
+          bool swapped = false;
+          for (int j =0; j < i - 1; j++){
+               if (the_array[j] > the_array[j+1]){
+                    SwapValues(the_array[j],the_array[j+1]);
+                    swapped = true;
+               }
+          }
+               if (swapped == false)
+               break;
+     }
+     return 1;
+}
 
 /*
  * Apply the selection sort algorithm to sort an array of integers.
@@ -37,7 +61,19 @@ int OptimizedBubbleSort(int the_array[], unsigned int size);
  *               defined as the number of times the outside loop runs. You
  *               should increment your variable once you enter the outside loop.
  */
-int SelectionSort(int the_array[], unsigned int size);
+int SelectionSort(int the_array[], unsigned int size){
+     for (unsigned int i = 0; i < size -1; i++){
+          unsigned int smallest = i;
+               for (unsigned int j = i+1; j < size ; j++){
+                    if (the_array[j] < the_array[smallest])
+                    smallest = j;
+               }
+                    if (smallest != i){
+                   SwapValues(the_array[i],the_array[smallest]);
+                    }
+     }
+    return 5;
+}
 
 /*
  * Swap the values of two integer variables.
@@ -76,6 +112,10 @@ void SwapValues(int &value_1, int &value_2) {
     cout << value_1 << " " << value_2 << endl;
   }
   // Code SWAP Algorithm Here
+     int temp;
+     temp = value_1;
+     value_1 = value_2;
+     value_2 = temp;
 }
 
 // For testing (DO NOT ALTER)
