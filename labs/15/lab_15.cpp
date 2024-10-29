@@ -1,6 +1,6 @@
 /*
  * Name        : lab_15.cpp
- * Author      : FILL IN
+ * Author      : Brian Lee
  * Description : Working with Insertion and Shell Sort
  */
 #include <iostream>
@@ -8,6 +8,8 @@
 using std::cout;
 using std::endl;
 using std::string;
+
+void SwapValues(int &value_1, int &value_2);
 
 /*
  * Apply the insertion sort algorithm to sort an array of integers.
@@ -17,7 +19,16 @@ using std::string;
  *               defined as the number of times the outside loop runs. You
  *               should increment your variable once you enter the outside loop.
  */
-int InsertionSort(int the_array[], unsigned int size);
+int InsertionSort(int the_array[], unsigned int size){
+  for (unsigned int i =0; i < size ; i++){
+    int j = i;
+    while (j>0 && the_array[j] < the_array[j-1]){
+        SwapValues(the_array[j], the_array[j-1]);
+        j = j-1;
+    }
+  }
+  return 5;
+}
 
 /*
  * Apply the shell sort algorithm to sort an array of integers.
@@ -29,7 +40,22 @@ int InsertionSort(int the_array[], unsigned int size);
  *               defined as the number of times the outside loop runs. You
  *               should increment your variable once you enter the outside loop.
  */
-int ShellSort(int the_array[], unsigned int size);
+int ShellSort(int the_array[], unsigned int size){
+  unsigned int gap = size/2;
+  while (gap>0){
+    for (unsigned int i = gap; i < size; i++ ){
+      int temp = the_array[i];
+      unsigned int j = i;
+      while (j >= gap && the_array[j-gap] > temp){
+        the_array[j] = the_array[j - gap];
+        j = j - gap;
+      }
+        the_array[j] = temp;
+    }
+        gap = gap / 2;
+  }
+  return 2;
+}
 
 /*
  * Swap the values of two integer variables.
@@ -69,6 +95,10 @@ void SwapValues(int &value_1, int &value_2) {
     cout << value_1 << " " << value_2 << endl;
   }
   // Code SWAP Algorithm Here
+   int temp;
+     temp = value_1;
+     value_1 = value_2;
+     value_2 = temp;
 }
 
 // For testing (DO NOT ALTER)
